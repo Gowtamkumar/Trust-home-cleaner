@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OrderListTable = ({ allOrder }) => {
+const ManageOrdersTable = ({ ManageOrder }) => {
     return (
         <div>
             <table class="table table-hover">
@@ -16,14 +16,23 @@ const OrderListTable = ({ allOrder }) => {
                 </thead>
                 <tbody>
                     {
-                        allOrder.map((order, index) =>
+                        ManageOrder.map((order, index) =>
                             <tr>
                                 <th scope="row">{index + 1}</th>
                                 <td>{order.name}</td>
                                 <td>{order.email}</td>
                                 <td>{order.service}</td>
                                 <td>{order.paymentmethod}</td>
-                                <td> Comming Soon </td>
+                                <td>
+                                    <select name="" id="" >
+                                        <option value="" className="bg-danger">Pending</option>
+                                        <option value="" className="bg-warning">On Going</option>
+                                        <option value="" className="bg-success">Done</option>
+                                    </select>
+
+                                    
+                                </td>
+
                             </tr>
                         )
                     }
@@ -34,4 +43,4 @@ const OrderListTable = ({ allOrder }) => {
     );
 };
 
-export default OrderListTable;
+export default ManageOrdersTable;

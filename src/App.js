@@ -16,6 +16,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ManageServicesTable from './components/Dashboard/ManageServicesTable/ManageServicesTable';
 import ManageServices from './components/Dashboard/ManageServices/ManageServices';
 import Review from './components/Dashboard/Review/Review';
+import ManageOrders from './components/Dashboard/ManageOrders/ManageOrders';
 
 export const UserContext = createContext()
 function App() {
@@ -47,6 +48,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/manageservices">
             <ManageServices></ManageServices>
+          </PrivateRoute>
+          <PrivateRoute path="/manageorders">
+            <ManageOrders></ManageOrders>
           </PrivateRoute>
           <PrivateRoute path="/review">
             <Review></Review>

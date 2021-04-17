@@ -18,7 +18,7 @@ const Login = () => {
   let location = useLocation();
 
 
-  let { from } = location.state || { from: { pathname: "/" } };
+  let { from } = location.state || { from: { pathname: "/orderlist" } };
 
    
     const googleHeandle = () => {
@@ -54,7 +54,7 @@ const Login = () => {
         <div className="container d-flex align-items-center justify-content-center login-container">
             <div className="bg-light p-5 text-center">
                 <Link to="/" class="navbar-brand LogoBrand">TRUST HOME CLENER</Link>
-                <h4 className="pb-3 pt-4">Login With</h4>
+                <h4 className="pb-3 pt-4">Login</h4>
 
                 <button type="button" class="btn brand-button text-light" onClick={googleHeandle}>Conintue with Google</button>
             </div>

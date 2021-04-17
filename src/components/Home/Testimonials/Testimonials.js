@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Testimonial from './Testimonial/Testimonial';
 import './Testimonials.css'
-import img from '../../../Images/cleaning-set.jpg'
-import img1 from '../../../Images/Catering.jpg'
-import img2 from '../../../Images/home-clining.jpg'
+
 const Testimonials = () => {
     const [testimonials, setTestimonials] = useState([])
     useEffect(() => {
@@ -28,6 +26,11 @@ const Testimonials = () => {
 
 
             </section>
+            
+
+
+
+            
         </div>
 
     );

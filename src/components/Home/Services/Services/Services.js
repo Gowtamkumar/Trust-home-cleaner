@@ -20,6 +20,7 @@ console.log("dsfasdf",services)
                     services.map(SgService => <Service singleservice={SgService} key={SgService._id}></Service>)
                 }
             </div>
+           
         </div>
     );
 };

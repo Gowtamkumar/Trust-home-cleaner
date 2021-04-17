@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { UserContext } from '../../../App';
+import PaymentProcess from '../PaymentProcess/PaymentProcess';
 import Sidebar from '../Sidebar/Sidebar';
 
 
@@ -8,7 +9,6 @@ const Order = () => {
 
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     let { ID } = useParams();
-    console.log(ID)
     const [Order, setOrder] = useState({})
     const [orderProcess, setOrderProcess] = useState({})
 
@@ -18,40 +18,60 @@ const Order = () => {
             .then(data => setOrder(data))
     }, [])
 
+    // const handlesubmit=(e)=>{
+    //     e.preventDefault()
 
-    const handlesubmit = (e) => {
+    //     const formData = {...fromdata}
+
+    //     setFromData(formData)
+
+    // }
+
+    const handelpayment = (PaymentID) => {
+
         // const newOrderProcess = { ...orderProcess }
         // setOrderProcessHandel(newOrderProcess)
+
         // const name = userLoggedIn.displayName;
         // const email = userLoggedIn.email;
         // const address = orderProcess.address
         // const data = { name, email, address, ...Order }
 
 
-        const formData = new FormData()
-        formData.append('name', userLoggedIn.displayName)
-        formData.append('email', userLoggedIn.email)
-        formData.append('service', Order.service)
-        formData.append('price', Order.price)
-        formData.append('address', orderProcess.address)
-        formData.append('description', Order.description)
-        
+        // const formData = new FormData()
+        // formData.append('name', userLoggedIn.displayName)
+        // formData.append('email', userLoggedIn.email)
+        // formData.append('service', Order.service)
+        // formData.append('price', Order.price)
+        // formData.append('address', orderProcess.address)
+        // formData.append('description', Order.description)
 
 
-        // console.log("dsfasdfdsf", address)
 
+
+        const orderDetails = {
+            name: userLoggedIn.displayName,
+            email: userLoggedIn.email,
+            service: Order.service,
+            price: Order.price,
+            address: orderProcess.address,
+            paymentmethod: orderProcess.paymentmethod,
+            PaymentID,
+            OrderTime: new Date()
+        }
         fetch('http://localhost:5000/addorder', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderDetails)
         })
             .then(res => res.json())
-            .then(data => alert("successfully data insert"))
+            .then(data => alert("Payment Successfull"))
             .catch(error => {
                 console.log(error)
             })
-        e.preventDefault()
     }
-
 
     const OrderhandleBlur = (e) => {
         const address = { ...orderProcess }
@@ -59,7 +79,7 @@ const Order = () => {
         setOrderProcess(address)
     }
 
-    // console.log(orderProcess)
+    console.log('cratdiddi', orderProcess)
     return (
         <section>
             <div className="container-fluid">
@@ -77,7 +97,8 @@ const Order = () => {
                             </div>
                         </div>
                         <div className="p-2 mt-4">
-                            <form className="row g-3" onSubmit={handlesubmit}>
+                            <form className="row g-3" >
+                                {/* onSubmit={handlesubmit} */}
                                 <div className="col-md-6">
                                     <input type="text" defaultValue={userLoggedIn.displayName} className="form-control" />
                                 </div>
@@ -90,15 +111,27 @@ const Order = () => {
                                 <div className="col-12">
                                     <input type="text" name="address" onBlur={OrderhandleBlur} className="form-control" />
                                 </div>
-                                <div className="col-12">
-                                
+
+
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="paymentmethod"  onBlur={OrderhandleBlur} defaultValue="Credit Card" />
+                                    <label class="form-check-label" for="inlineRadio1">Credit Card</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="paymentmethod" onBlur={OrderhandleBlur} defaultValue="Paypal" />
+                                    <label class="form-check-label" for="inlineRadio2">Paypal</label>
                                 </div>
 
+
                                 <p>Your service charge will be ${Order.price}</p>
-                                <div className="col-12">
+                                {/* <div className="col-12">
                                     <button type="submit" className="btn btn-primary">Order Process</button>
-                                </div>
+                                </div> */}
                             </form>
+                            <div className="col-12">
+                                <PaymentProcess handelPayment={handelpayment}></PaymentProcess>
+                            </div>
                         </div>
 
                     </div>

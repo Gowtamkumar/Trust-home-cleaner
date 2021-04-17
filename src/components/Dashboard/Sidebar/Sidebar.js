@@ -64,6 +64,12 @@ const Sidebar = () => {
                                 <FontAwesomeIcon icon={faCog} /> <span>Manage Services</span>
                             </Link>
                         </li>
+                        <li className=" list-group-item-sidebar">
+                            <Link to="/manageorders"  >
+                                <FontAwesomeIcon icon={faCog} /> <span>Manage Orders</span>
+                            </Link>
+                        </li>
+                        
                     </div>}
                 </div>
 
