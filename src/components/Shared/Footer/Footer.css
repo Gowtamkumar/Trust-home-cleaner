@@ -1,0 +1,17 @@
+.footer-contaier{
+    padding: 20px;
+    
+}
+
+
+.list-group-items {
+    position: relative;
+    display: block;
+    padding: .5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+}
+
+.copyright-container{
+    margin: 100px 0px 10px 0px;
+}

@@ -1,0 +1,8 @@
+.list-group-item-sidebar {
+    position: relative;
+    display: block;
+    padding: .5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+   
+}
