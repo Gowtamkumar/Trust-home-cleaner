@@ -11,7 +11,7 @@ const NotFound = () => {
                 <div class="err2">4</div>
                 <div class="msg">Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?<p>Let's go
         
-                    <Link to="https://trust-home-clener.web.app/">
+                    <Link to="/">
                         Home
                     </Link>
                 and try from there.</p></div>
