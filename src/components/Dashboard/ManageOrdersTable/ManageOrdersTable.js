@@ -13,7 +13,6 @@ const ManageOrdersTable = ({ ManageOrder }) => {
         })
             .then(res => res.json())
             .then(data => alert("Order Status Update Successfully"))
-
     }, [id])
 
     return (
@@ -30,9 +29,9 @@ const ManageOrdersTable = ({ ManageOrder }) => {
                     </tr>
                 </thead>
                 <tbody>
-                {
-                    ManageOrder.length === 0 && <p>Lodding.....</p>
-                }
+                    {
+                        ManageOrder.length === 0 && <p>Lodding.....</p>
+                    }
                     {
                         ManageOrder.map((order, index) =>
                             <tr>
@@ -49,15 +48,11 @@ const ManageOrdersTable = ({ ManageOrder }) => {
                                         const test = { selectStatus, OrderID }
                                         setSelectOption(test)
                                     }}>
-
                                         <option value="Pending" className="bg-danger">Pending</option>
                                         <option value="On Going" className="bg-warning">On Going</option>
                                         <option value="Done" className="bg-success">Done</option>
                                     </select>
-
-
                                 </td>
-
                             </tr>
                         )
                     }

@@ -12,27 +12,21 @@ const Login = () => {
     } else {
         firebase.app(); // if already initialized, use that one
     }
-
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     let history = useHistory();
-  let location = useLocation();
+    let location = useLocation();
 
+    let { from } = location.state || { from: { pathname: "/orderlist" } };
 
-  let { from } = location.state || { from: { pathname: "/orderlist" } };
-
-   
     const googleHeandle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
-
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
                 const user = result.user;
-               
                 setUserLoggedIn(user)
                 history.replace(from);
                 // setUserToken()
-
             }).catch((error) => {
                 const errorMessage = error.message;
                 console.log(errorMessage)
@@ -47,16 +41,13 @@ const Login = () => {
     //         // Handle error
     //       });
     // }
-    
 
-    console.log("dsfgsdf",userLoggedIn.displayName)
     return (
         <div className="container d-flex align-items-center justify-content-center login-container">
             <div className="bg-light p-5 text-center">
-                <Link to="/" class="navbar-brand LogoBrand">TRUST HOME CLENER</Link>
+                <Link to="/" className="navbar-brand LogoBrand">TRUST HOME CLENER</Link>
                 <h4 className="pb-3 pt-4">Login</h4>
-
-                <button type="button" class="btn brand-button text-light" onClick={googleHeandle}>Conintue with Google</button>
+                <button type="button" className="btn brand-button text-light" onClick={googleHeandle}>Conintue with Google</button>
             </div>
         </div>
     );

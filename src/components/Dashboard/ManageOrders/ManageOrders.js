@@ -18,7 +18,6 @@ const ManageOrders = () => {
             .then(data => sertManageOrder(data))
     }, [])
 
-   
     return (
         <section>
             <div className="container-fluid">
@@ -37,7 +36,7 @@ const ManageOrders = () => {
                             </div>
                         </div>
                         <div className="row p-2 mt-4">
-                            <ManageOrdersTable ManageOrder={ManageOrder}></ManageOrdersTable>
+                            <ManageOrdersTable ManageOrder={ManageOrder} ></ManageOrdersTable>
                         </div>
                     </div>
                 </div>

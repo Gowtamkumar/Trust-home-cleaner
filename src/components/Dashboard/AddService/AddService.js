@@ -12,7 +12,6 @@ const AddService = () => {
         const newServiceInfo = { ...serviceInfo }
         newServiceInfo[event.target.name] = event.target.value
         serServiceInfo(newServiceInfo)
-        console.log(serviceInfo)
     }
     const handlesubmit = (e) => {
         const formData = new FormData()
@@ -24,12 +23,11 @@ const AddService = () => {
         fetch('https://cryptic-sea-20754.herokuapp.com/addservice', {
             method: "POST",
             body: formData,
-            // headers: { 'Content-Type': 'application/json' }
         })
             .then(res => res.json())
             .then(data => alert(" Service Add Successfully"))
             .catch(error => {
-                console.log(error)
+                alert(error)
             })
         e.preventDefault()
     }
@@ -74,7 +72,6 @@ const AddService = () => {
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>

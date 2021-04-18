@@ -3,9 +3,7 @@ import { UserContext } from '../../../App';
 import ManageServicesTable from '../ManageServicesTable/ManageServicesTable';
 import Sidebar from '../Sidebar/Sidebar';
 
-
 const ManageServices = () => {
-
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     const [allServices, setAllServices] = useState([])
     useEffect(() => {
@@ -33,7 +31,6 @@ const ManageServices = () => {
                         <div className="row p-2 mt-4">
                             <ManageServicesTable allServices={allServices} key={allServices._id}></ManageServicesTable>
                         </div>
-
                     </div>
                 </div>
             </div>

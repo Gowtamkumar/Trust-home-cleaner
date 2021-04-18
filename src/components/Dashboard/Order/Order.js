@@ -4,9 +4,7 @@ import { UserContext } from '../../../App';
 import PaymentProcess from '../PaymentProcess/PaymentProcess';
 import Sidebar from '../Sidebar/Sidebar';
 
-
 const Order = () => {
-
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     let { ID } = useParams();
     const [Order, setOrder] = useState({})
@@ -18,37 +16,7 @@ const Order = () => {
             .then(data => setOrder(data))
     }, [])
 
-    // const handlesubmit=(e)=>{
-    //     e.preventDefault()
-
-    //     const formData = {...fromdata}
-
-    //     setFromData(formData)
-
-    // }
-
     const handelpayment = (PaymentID) => {
-
-        // const newOrderProcess = { ...orderProcess }
-        // setOrderProcessHandel(newOrderProcess)
-
-        // const name = userLoggedIn.displayName;
-        // const email = userLoggedIn.email;
-        // const address = orderProcess.address
-        // const data = { name, email, address, ...Order }
-
-
-        // const formData = new FormData()
-        // formData.append('name', userLoggedIn.displayName)
-        // formData.append('email', userLoggedIn.email)
-        // formData.append('service', Order.service)
-        // formData.append('price', Order.price)
-        // formData.append('address', orderProcess.address)
-        // formData.append('description', Order.description)
-
-
-
-
         const orderDetails = {
             name: userLoggedIn.displayName,
             email: userLoggedIn.email,
@@ -56,7 +24,7 @@ const Order = () => {
             price: Order.price,
             address: orderProcess.address,
             paymentmethod: orderProcess.paymentmethod,
-            status: 'pending',
+            status: 'Pending',
             PaymentID,
             OrderTime: new Date()
         }
@@ -79,8 +47,6 @@ const Order = () => {
         address[e.target.name] = e.target.value;
         setOrderProcess(address)
     }
-
-    console.log('cratdiddi', orderProcess)
     return (
         <section>
             <div className="container-fluid">
@@ -112,18 +78,14 @@ const Order = () => {
                                 <div className="col-12">
                                     <input type="text" name="address" onBlur={OrderhandleBlur} className="form-control" />
                                 </div>
-
-
-
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="paymentmethod"  onBlur={OrderhandleBlur} defaultValue="Credit Card" />
+                                    <input class="form-check-input" type="radio" name="paymentmethod" onBlur={OrderhandleBlur} defaultValue="Credit Card" />
                                     <label class="form-check-label" for="inlineRadio1">Credit Card</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="paymentmethod" onBlur={OrderhandleBlur} defaultValue="Paypal" />
                                     <label class="form-check-label" for="inlineRadio2">Paypal</label>
                                 </div>
-
 
                                 <p>Your service charge will be ${Order.price}</p>
                                 {/* <div className="col-12">

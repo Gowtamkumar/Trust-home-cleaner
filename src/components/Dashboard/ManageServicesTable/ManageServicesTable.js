@@ -9,7 +9,6 @@ const ManageServicesTable = ({ allServices }) => {
             .then(data => {
                 alert("Delete Successfull")
             })
-
     }
     return (
         <div>
@@ -18,16 +17,15 @@ const ManageServicesTable = ({ allServices }) => {
                     <tr>
                         <th scope="col">Sr.No</th>
                         <th scope="col">Services Title</th>
-
                         <th scope="col">Price</th>
                         <th scope="col" style={{ width: '600px' }}>Description</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                {
-                    allServices.length === 0 && <p>Lodding.....</p>
-                }
+                    {
+                        allServices.length === 0 && <p>Lodding.....</p>
+                    }
                     {
                         allServices.map((order, index) =>
                             <tr>
@@ -35,15 +33,12 @@ const ManageServicesTable = ({ allServices }) => {
                                 <td>{order.service}</td>
                                 <td>{order.price}</td>
                                 <td>{order.description}</td>
-
                                 <td>
                                     <button className="btn btn-danger" onClick={() => deleteService(order._id)}>Delete</button>
                                 </td>
-
                             </tr>
                         )
                     }
-
                 </tbody>
             </table>
         </div>

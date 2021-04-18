@@ -8,7 +8,6 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
-    console.log("dsfasdf", services)
     return (
         <div className="container mt-5 mb-5">
             <div className="text-center mb-5">
@@ -19,12 +18,10 @@ const Services = () => {
                 {
                     services.length === 0 && <p>Lodding.....</p>
                 }
-
                 {
                     services.map(SgService => <Service singleservice={SgService} key={SgService._id}></Service>)
                 }
             </div>
-
         </div>
     );
 };

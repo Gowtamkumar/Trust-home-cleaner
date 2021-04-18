@@ -6,14 +6,11 @@ const PaymentProcessForm = ({ handelPayment }) => {
     const stripe = useStripe();
     const elements = useElements();
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         if (!stripe || !elements) {
             return;
         }
-
         const cardElement = elements.getElement(CardElement);
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
@@ -22,17 +19,15 @@ const PaymentProcessForm = ({ handelPayment }) => {
 
         if (error) {
             setpaymentError(error.message)
-            console.log('[error]', error);
+            // console.log('[error]', error);
             setpaymentSuccess(null)
         } else {
             setpaymentSuccess(paymentMethod.id)
             setpaymentError(null)
             handelPayment(paymentMethod.id)
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
         }
-
     };
-
     return (
         <div>
             <form onSubmit={handleSubmit}>

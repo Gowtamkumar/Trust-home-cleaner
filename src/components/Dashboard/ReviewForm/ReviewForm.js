@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const ReviewForm = () => {
-    const [review, setReview] = useState({})
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        setReview(data)
         fetch('https://cryptic-sea-20754.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -15,7 +13,7 @@ const ReviewForm = () => {
             .then(res => res.json())
             .then(data => alert("Review Add successfully"))
     };
-    console.log(review)
+
     return (
         <div>
             <form className="row" onSubmit={handleSubmit(onSubmit)}>

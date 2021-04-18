@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 const MakeAdminForm = () => {
-    const [makeAdmin, setMakeAdmin] = useState({})
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
-        setMakeAdmin(data)
         fetch('https://cryptic-sea-20754.herokuapp.com/makeadmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -13,11 +12,8 @@ const MakeAdminForm = () => {
         })
             .then(res => res.json())
             .then(data => alert("Admin Add Successfully"))
-
     };
 
-
-    console.log(makeAdmin)
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>

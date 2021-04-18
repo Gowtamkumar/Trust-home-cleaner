@@ -6,10 +6,9 @@ import Header from '../Header/Header';
 import Services from '../Services/Services/Services';
 import Testimonials from '../Testimonials/Testimonials';
 
-
 const Home = () => {
     return (
-        <div className="">
+        <div>
             <Header></Header>
             <Services></Services>
             <About></About>
@@ -17,7 +16,6 @@ const Home = () => {
             <Contact></Contact>
             <Footer></Footer>
         </div>
-
     );
 };
 

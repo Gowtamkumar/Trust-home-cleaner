@@ -18,7 +18,6 @@ const MakeAdmin = () => {
                     <div className="main bg-light m-2">
                         <div className="d-flex">
                             <h6>Make Admin</h6>
-
                             <h6 className="ms-auto">{userLoggedIn.displayName}</h6>
                         </div>
                     </div>

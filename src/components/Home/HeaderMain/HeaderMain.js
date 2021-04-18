@@ -8,7 +8,6 @@ const HeaderMain = () => {
                 Choose us because of our reputation for excellence.</h2><br />
                 <button className="btn brand-button text-light">Read More</button>
             </div>
-
         </div>
     );
 };

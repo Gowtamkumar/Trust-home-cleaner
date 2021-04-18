@@ -19,14 +19,11 @@ const Sidebar = () => {
             .then(res => res.json())
             .then(data => setIsAdmin(data))
     }, [])
-    console.log(userLoggedIn)
+
     return (
         <div className="d-flex flex-column justify-content-between bg-light pt-5">
             <ul className="list-group" style={{ height: "84vh" }}>
                 <div>
-
-
-
                     <li className="list-group-item-sidebar">
                         <Link to="/dashboard/dashboard" class="navbar-brand brand-text-color LogoBrand"> HOME CLENER</Link>
                     </li>
@@ -42,7 +39,6 @@ const Sidebar = () => {
                     </li>
 
                     {isAdmin && <div>
-
                         <li className="list-group-item-sidebar">
                             <Link to="/dashboard/dashboard"  >
                                 <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
@@ -68,16 +64,13 @@ const Sidebar = () => {
                                 <FontAwesomeIcon icon={faCog} /> <span>Manage Orders</span>
                             </Link>
                         </li>
-                        
                     </div>}
                 </div>
-
             </ul>
             <div className="mb-5">
                 <Link to="/"  ><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
             </div>
         </div>
-
     );
 };
 
