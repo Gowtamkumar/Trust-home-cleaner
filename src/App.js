@@ -17,6 +17,7 @@ import ManageServices from './components/Dashboard/ManageServices/ManageServices
 import Review from './components/Dashboard/Review/Review';
 import ManageOrders from './components/Dashboard/ManageOrders/ManageOrders';
 import 'react-multi-carousel/lib/styles.css';
+import NotFound from './components/Dashboard/NotFound/NotFound';
 
 export const UserContext = createContext()
 function App() {
@@ -55,6 +56,9 @@ function App() {
           <PrivateRoute path="/review">
             <Review></Review>
           </PrivateRoute>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
