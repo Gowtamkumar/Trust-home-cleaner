@@ -16,6 +16,9 @@ const OrderListTable = ({ allOrder }) => {
                 </thead>
                 <tbody>
                     {
+                        allOrder.length === 0 && <p>Lodding.....</p>
+                    }
+                    {
                         allOrder.map((order, index) =>
                             <tr>
                                 <th scope="row">{index + 1}</th>
@@ -23,7 +26,7 @@ const OrderListTable = ({ allOrder }) => {
                                 <td>{order.email}</td>
                                 <td>{order.service}</td>
                                 <td>{order.paymentmethod}</td>
-                                <td> Comming Soon </td>
+                                <td> {order.status}</td>
                             </tr>
                         )
                     }

@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { AnimationWrapper } from 'react-hover-animation'
 const Service = ({ singleservice }) => {
     // console.log("sdfsdf",singleservice)
-    return (
-      
     
-   
+    return (
         <div className="col-md-4 d-flex justify-content-center">
             <div className="card" style={{ width: '22rem' }}>
             <AnimationWrapper>
@@ -21,16 +19,15 @@ const Service = ({ singleservice }) => {
                     <div className=" ">
                         <h2 className="brand-text-color">${singleservice.price}</h2>
                     </div>
-                    <div className=" ">
+                    <div>
                         <h2>
                             <Link to={`/order/${singleservice._id}`}>
-                                <button className="btn brand-button text-light">Buy Now</button>
+                                <button className="btn brand-button">Buy Now</button>
                             </Link>
                         </h2>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

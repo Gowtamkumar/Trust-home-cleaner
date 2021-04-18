@@ -7,9 +7,9 @@ const ManageOrders = () => {
 
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     const [ManageOrder, sertManageOrder] = useState([])
-  
+
     useEffect(() => {
-        fetch('http://localhost:5000/orderUser', {
+        fetch('https://cryptic-sea-20754.herokuapp.com/orderUser', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: userLoggedIn.email })
@@ -17,6 +17,8 @@ const ManageOrders = () => {
             .then(res => res.json())
             .then(data => sertManageOrder(data))
     }, [])
+
+   
     return (
         <section>
             <div className="container-fluid">
@@ -37,7 +39,6 @@ const ManageOrders = () => {
                         <div className="row p-2 mt-4">
                             <ManageOrdersTable ManageOrder={ManageOrder}></ManageOrdersTable>
                         </div>
-
                     </div>
                 </div>
             </div>

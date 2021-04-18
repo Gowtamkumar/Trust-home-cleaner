@@ -19,14 +19,12 @@ const Review = () => {
                             <div className="main bg-light m-2">
                                 <div className="d-flex">
                                     <h6>Add Review</h6>
-
                                     <h6 className="ms-auto">{userLoggedIn.displayName}</h6>
                                 </div>
                             </div>
                             <div className="row p-2 mt-4">
                                 <ReviewForm></ReviewForm>
                             </div>
-
                         </div>
                     </div>
                 </div>

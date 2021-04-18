@@ -6,7 +6,6 @@ const AddService = () => {
 
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     const [serviceInfo, serServiceInfo] = useState({})
-
     const [file, setFile] = useState(null)
 
     const handleBlur = (event) => {
@@ -22,17 +21,16 @@ const AddService = () => {
         formData.append('price', serviceInfo.price)
         formData.append('description', serviceInfo.description)
 
-        fetch('http://localhost:5000/addservice', {
+        fetch('https://cryptic-sea-20754.herokuapp.com/addservice', {
             method: "POST",
             body: formData,
             // headers: { 'Content-Type': 'application/json' }
         })
             .then(res => res.json())
-            .then(data => alert("successfully data insert"))
+            .then(data => alert(" Service Add Successfully"))
             .catch(error => {
                 console.log(error)
             })
-
         e.preventDefault()
     }
 
@@ -53,7 +51,6 @@ const AddService = () => {
                         <div className="main bg-light m-2">
                             <div className="d-flex">
                                 <h6>Add Service</h6>
-
                                 <h6 className="ms-auto">{userLoggedIn.displayName}</h6>
                             </div>
                         </div>
@@ -72,7 +69,6 @@ const AddService = () => {
                                 <div className="col-md-6">
                                     <input type="file" onChange={handleFileChange} name="file" className="form-control" />
                                 </div>
-
                                 <div className="col-12">
                                     <button type="submit" className="btn brand-button">Add Service</button>
                                 </div>

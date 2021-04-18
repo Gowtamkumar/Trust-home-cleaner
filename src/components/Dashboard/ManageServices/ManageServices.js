@@ -9,7 +9,7 @@ const ManageServices = () => {
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     const [allServices, setAllServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allservices')
+        fetch('https://cryptic-sea-20754.herokuapp.com/allservices')
             .then(res => res.json())
             .then(data => setAllServices(data))
     }, [])

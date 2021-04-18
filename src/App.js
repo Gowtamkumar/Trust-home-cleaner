@@ -13,10 +13,10 @@ import MakeAdmin from './components/Dashboard/MakeAdmin/MakeAdmin';
 import Order from './components/Dashboard/Order/Order';
 import { createContext, useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import ManageServicesTable from './components/Dashboard/ManageServicesTable/ManageServicesTable';
 import ManageServices from './components/Dashboard/ManageServices/ManageServices';
 import Review from './components/Dashboard/Review/Review';
 import ManageOrders from './components/Dashboard/ManageOrders/ManageOrders';
+import 'react-multi-carousel/lib/styles.css';
 
 export const UserContext = createContext()
 function App() {
@@ -55,8 +55,6 @@ function App() {
           <PrivateRoute path="/review">
             <Review></Review>
           </PrivateRoute>
-
-
         </Switch>
       </Router>
     </UserContext.Provider>

@@ -6,13 +6,13 @@ const MakeAdminForm = () => {
 
     const onSubmit = data => {
         setMakeAdmin(data)
-        fetch('http://localhost:5000/makeadmin', {
+        fetch('https://cryptic-sea-20754.herokuapp.com/makeadmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(data => alert("Make Admin successfully"))
+            .then(data => alert("Admin Add Successfully"))
 
     };
 

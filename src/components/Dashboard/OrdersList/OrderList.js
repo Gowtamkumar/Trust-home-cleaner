@@ -8,13 +8,13 @@ const OrderList = () => {
     const [userLoggedIn, setUserLoggedIn] = useContext(UserContext)
     const [allOrder, sertAllOrder] = useState([])
     // useEffect(() => {
-    //     fetch('http://localhost:5000/allorders')
+    //     fetch('https://cryptic-sea-20754.herokuapp.com/allorders')
     //         .then(res => res.json())
     //         .then(data => sertAllOrder(data))
     // }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/orderUser', {
+        fetch('https://cryptic-sea-20754.herokuapp.com/orderUser', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: userLoggedIn.email })

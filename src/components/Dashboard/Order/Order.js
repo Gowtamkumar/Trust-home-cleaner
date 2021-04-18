@@ -13,7 +13,7 @@ const Order = () => {
     const [orderProcess, setOrderProcess] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${ID}`)
+        fetch(`https://cryptic-sea-20754.herokuapp.com/service/${ID}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])
@@ -56,10 +56,11 @@ const Order = () => {
             price: Order.price,
             address: orderProcess.address,
             paymentmethod: orderProcess.paymentmethod,
+            status: 'pending',
             PaymentID,
             OrderTime: new Date()
         }
-        fetch('http://localhost:5000/addorder', {
+        fetch('https://cryptic-sea-20754.herokuapp.com/addorder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -7,14 +7,13 @@ const ReviewForm = () => {
 
     const onSubmit = data => {
         setReview(data)
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://cryptic-sea-20754.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(data => alert("Make Admin successfully"))
-
+            .then(data => alert("Review Add successfully"))
     };
     console.log(review)
     return (

@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://cryptic-sea-20754.herokuapp.com/isAdmin', {
             method: "POST",
             headers: { 'Content-Type': 'Application/json' },
             body: JSON.stringify({ email: userLoggedIn.email })
@@ -27,24 +27,23 @@ const Sidebar = () => {
 
 
 
-                    <li className=" list-group-item-sidebar">
+                    <li className="list-group-item-sidebar">
                         <Link to="/dashboard/dashboard" class="navbar-brand brand-text-color LogoBrand"> HOME CLENER</Link>
                     </li>
-                    <li className=" list-group-item-sidebar">
+                    <li className="list-group-item-sidebar">
                         <Link to="/orderlist"  >
                             <FontAwesomeIcon icon={faUsers} /> <span>Order List</span>
                         </Link>
                     </li>
-                    <li className=" list-group-item-sidebar">
+                    <li className="list-group-item-sidebar">
                         <Link to="/review" >
                             <FontAwesomeIcon icon={faUsers} /> <span>Review</span>
                         </Link>
                     </li>
 
-
                     {isAdmin && <div>
 
-                        <li className=" list-group-item-sidebar">
+                        <li className="list-group-item-sidebar">
                             <Link to="/dashboard/dashboard"  >
                                 <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
                             </Link>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ManageServicesTable = ({ allServices }) => {
     const deleteService = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://cryptic-sea-20754.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -25,6 +25,9 @@ const ManageServicesTable = ({ allServices }) => {
                     </tr>
                 </thead>
                 <tbody>
+                {
+                    allServices.length === 0 && <p>Lodding.....</p>
+                }
                     {
                         allServices.map((order, index) =>
                             <tr>

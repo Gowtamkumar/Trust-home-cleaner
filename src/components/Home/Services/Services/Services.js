@@ -4,11 +4,11 @@ import Service from '../Service/Service';
 const Services = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allservices')
+        fetch('https://cryptic-sea-20754.herokuapp.com/allservices')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
-console.log("dsfasdf",services)
+    console.log("dsfasdf", services)
     return (
         <div className="container mt-5 mb-5">
             <div className="text-center mb-5">
@@ -17,10 +17,14 @@ console.log("dsfasdf",services)
             </div>
             <div className="row">
                 {
+                    services.length === 0 && <p>Lodding.....</p>
+                }
+
+                {
                     services.map(SgService => <Service singleservice={SgService} key={SgService._id}></Service>)
                 }
             </div>
-           
+
         </div>
     );
 };
